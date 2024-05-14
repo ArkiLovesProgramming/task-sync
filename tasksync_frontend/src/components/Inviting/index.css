@@ -1,0 +1,80 @@
+.InvitingBox{
+    width: 448px;
+    background-color: white;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.InvitingBox_title{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.InvitingBox_input_box_label{
+    margin: 10px 0px;
+    font-weight: bold;
+}
+
+.InvitingBox_input_box{
+    width: 100%;
+    background-color: white;
+    height: 40px;
+    padding: 3px 0px 3px 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    border: 1px solid black;
+}
+
+.InvitingBox_input_box input{
+    width: 95%;
+    height: 34px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 16px;
+    /* margin-right: 8px; */
+}
+
+.InvitingBox_input_box:has(input:focus) {
+    border: 1px solid rgb(106, 99, 246);
+}
+
+.InvitingBox_input_box input:focus{
+    outline: none;
+}
+
+.InvitingBox_users_display{
+    /* margin-top: 20px; */
+    /* display: flex;   
+    flex-flow: wrap; */
+    /* justify-content: space-around; */
+}
+
+.InvitingBox_users_display_item{
+    display: flex;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    width: fit-content;
+    padding: 0px 10px;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.inviting_searchresult{
+
+}
+
+.inviting_searchresul_display_item{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    /* border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 1px ; */
+}

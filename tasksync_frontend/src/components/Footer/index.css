@@ -1,0 +1,27 @@
+.myfooter{
+    /* background-color: antiquewhite; */
+    /* text-align: ; */
+    /* height: 50px; */
+    z-index: 1;
+    color: darkgray;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.myfooter a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.myfooter a:hover{
+    color: gray;
+}
+
+.myfooter_content{
+    display: flex;
+    line-height: 28px;
+}
+
+.mc_item{
+    margin: 0px 10px;
+}

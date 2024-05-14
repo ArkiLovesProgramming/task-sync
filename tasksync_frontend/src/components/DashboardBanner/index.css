@@ -1,0 +1,11 @@
+.dashboard_banner{
+    height: 56px;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.like_project_btn{
+    margin-left: 10px;
+}

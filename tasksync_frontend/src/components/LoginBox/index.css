@@ -1,0 +1,181 @@
+.login_box{
+    /* background-color: whitesmoke; */
+    /* width: 100%; */
+    padding: 40px 50px;
+    border-radius: 18px;
+    /* border: 1px solid grey; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+}
+
+.login_box_title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.login_box_title_info > div:first-child{
+    font-size: 22px;
+    font-weight: 900;
+    margin: 10px 0px;
+}
+
+.login_box_title_info > div:last-child{
+    margin: 10px 0px;
+}
+
+.login_box_input_box{
+    position: relative;
+}
+
+.username_input_box{
+    width: 100%;
+    background-color: white;
+    height: 40px;
+    padding: 3px 0px 3px 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    border: 1px solid black;
+}
+
+.username_input_box input{
+    width: 100%;
+    height: 34px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 16px;
+    /* margin-right: 8px; */
+}
+
+.username_input_box:has(input:focus) {
+    border: 1px solid rgb(106, 99, 246);
+}
+
+.username_input_box input:focus{
+    outline: none;
+}
+
+.login_box_lable{
+    position: absolute;
+    left: 10px;
+    transition: 0.2s;
+    color: grey;
+    display: inline-block;
+    cursor: text;
+}
+
+.login_box_lable:has(+ input:focus), 
+.login_box_lable:has(+ input:not(:placeholder-shown)) {
+    transform: translate(-8px, -26px);
+    scale: 0.75;
+}
+
+.submit_input_box > .MuiButtonBase-root{
+    width: 100%;
+    margin: 20px 0px;
+    background-color: rgb(106, 99, 246);
+}
+
+.login_box_bottom{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.forgetyourpassword{
+    font-size: 13px;
+}
+
+@media screen and (max-device-width: 560px) {
+    .forgetyourpassword{
+        font-size: 30px;
+    }
+    .login_box{
+        /* background-color: whitesmoke; */
+        /* width: 100%; */
+        padding: 40px 50px;
+        border-radius: 18px;
+        /* border: 1px solid grey; */
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        background-color: white;
+    }
+    
+    .login_box_title{
+        text-align: center;
+        font-size: 4rem;
+    }
+    
+    .login_box_title_info > div:first-child{
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 2rem 0px;
+    }
+    
+    .login_box_title_info > div:last-child{
+        margin: 2rem 0px;
+        font-size: 2rem;
+    }
+    
+    .login_box_input_box{
+        position: relative;
+    }
+    
+    .username_input_box{
+        width: 100%;
+        background-color: white;
+        height: 5rem;
+        padding: 3px 0px 3px 8px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        margin: 3rem 0px;
+        border: 1px solid black;
+    }
+    
+    .username_input_box input{
+        width: 100%;
+        height: 4rem;
+        /* background-color: antiquewhite; */
+        box-sizing: border-box;
+        border: none;
+        font-size: 3rem;
+        /* margin-right: 8px; */
+    }
+    
+    .username_input_box:has(input:focus) {
+        border: 2px solid rgb(106, 99, 246);
+    }
+    
+    .username_input_box input:focus{
+        outline: none;
+    }
+    
+    .login_box_lable{
+        position: absolute;
+        left: 10px;
+        transition: 0.2s;
+        color: grey;
+        display: inline-block;
+        cursor: text;
+    }
+    
+    .login_box_lable:has(+ input:focus), 
+    .login_box_lable:has(+ input:not(:placeholder-shown)) {
+        transform: translate(-2rem, -5rem);
+        scale: 0.75;
+    }
+    
+    .submit_input_box > .MuiButtonBase-root{
+        width: 100%;
+        height: 80px;
+        margin: 20px 0px;
+        background-color: rgb(106, 99, 246);
+    }
+    
+    .login_box_bottom{
+        margin-top: 40%;
+        text-align: center;
+    }
+}

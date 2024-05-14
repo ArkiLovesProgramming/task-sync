@@ -1,0 +1,6 @@
+.main_page{
+    min-height: 100%;
+    /* background-color: bisque; */
+    display: flex;
+    flex-direction: column;
+}

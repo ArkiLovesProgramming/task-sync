@@ -1,0 +1,13 @@
+.Workspace{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: auto;
+    /* background-color: antiquewhite; */
+}
+
+@media screen and (max-width: 900px) {
+    .Workspace{
+        justify-content: left;
+    }
+}

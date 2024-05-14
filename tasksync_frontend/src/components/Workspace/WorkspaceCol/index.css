@@ -1,0 +1,55 @@
+.WorkSpaceCol{
+    width: 300px;
+    margin-right: 30px;
+    min-height: 285px;
+}
+
+.WorkSpaceCol_title{
+    /* background-color: whitesmoke; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0px 4px;
+    height: 56px;
+    font-weight: bolder;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.WorkSpaceCol_add_btn {
+    /* background-color: antiquewhite; */
+    margin-bottom: 10px;
+}
+
+.WorkSpaceCol_add_btn .MuiButtonBase-root{
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 1px solid transparent;
+}
+
+.WorkSpaceCol_title_modifying_box{
+    height: 30px;
+    border: 1px solid grey;
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0px 3px;
+    box-sizing: border-box;
+
+}
+.WorkSpaceCol_title_modifying_box:has(input:focus){
+    border: 1px solid grey;
+}
+.WorkSpaceCol_title_modifying_box input{
+    height: 26px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+}
+
+.WorkSpaceCol_title_modifying_box input:focus{
+    outline: none;
+}

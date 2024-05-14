@@ -1,0 +1,76 @@
+.login_page{
+    background-color: rgb(106, 99, 246);
+    overflow: hidden;
+    height: calc(100%);
+    position: relative;
+}
+
+.Login_page_box{
+    max-width: 438px;
+    margin: auto;
+    padding-top: 10px;
+    z-index: 1;
+    position: relative;
+    /* background-color: antiquewhite; */
+}
+
+.login_page_ill{
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    /* overflow: hidden; */
+    /* background-color: aliceblue; */
+    justify-content: space-around;
+    animation: 15s infiniteRolling linear infinite normal;
+}
+
+.login_page_ill img{
+    height: 200px;
+    /* height: 100px; */
+}
+
+@keyframes infiniteRolling
+{
+    from {
+        -webkit-transform: translate3d(-1600px, 0, 0);
+        transform: translate3d(-1600px, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+@media only screen and (max-device-width: 560px) {
+    .login_page{
+        /* background-color: antiquewhite; */
+        /* font-size: 2rem; */
+        font-size: 40px;
+    }
+    .Login_page_box{
+        max-width: 90%;
+        margin: auto;
+        padding-top: 10%;
+        z-index: 1;
+        position: relative;
+        /* background-color: antiquewhite; */
+    }
+    
+    .login_page_ill{
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        width: 100%;
+        /* overflow: hidden; */
+        /* background-color: aliceblue; */
+        justify-content: space-around;
+        animation: 15s infiniteRolling linear infinite normal;
+    }
+    
+    .login_page_ill img{
+        height: 20rem;
+        /* height: 100px; */
+    }
+}
