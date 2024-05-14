@@ -26,7 +26,7 @@ async function login(accountNumber, password) {
 }
 
 async function getUserById(userId) {
-    const data = await UserModel.findByOne({
+    const data = await UserModel.findOne({
         _id: userId,
         deleted: 0
     })
