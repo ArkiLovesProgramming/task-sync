@@ -10,6 +10,6 @@ module.exports = {
         validTime: 3000
     },
     cors: {
-        origin: "tasksync.arkilovesprogramming.com"
+        origin: ["http://tasksync.arkilovesprogramming.com:80", "https://tasksync.arkilovesprogramming.com:443"]
     }
 }
