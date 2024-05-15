@@ -8,6 +8,7 @@ const FileRouter = require('./router/FileRouter')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const MongoServer = require('./db/MongoServer')
+const config = require('./config/Config')
 
 const app = express()
 const jsonParser = bodyParser.json()
@@ -22,7 +23,7 @@ app.use(cookieParser())
 
 // 全局配置跨域
 app.use(cors({
-	origin: 'http://localhost:3000',
+	origin: config.cors.origin,
 	credentials: true,
 	allowedHeaders: ['Content-Type'],
 	methods: ['GET', 'POST', 'PUT', 'DELETE']

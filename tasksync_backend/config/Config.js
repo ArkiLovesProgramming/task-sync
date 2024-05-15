@@ -8,5 +8,8 @@ module.exports = {
     token: {
         secret: "todo_arki_node.js",
         validTime: 3000
+    },
+    cors: {
+        origin: "tasksync.arkilovesprogramming.com"
     }
 }
