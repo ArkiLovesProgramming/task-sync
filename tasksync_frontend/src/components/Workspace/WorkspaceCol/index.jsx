@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect } from 'react'
 import './index.css'
 //fake data
 // compone
@@ -11,7 +11,6 @@ import AddTask from '../../AddTask';
 import api from '../../../common/api';
 import EditIcon from '@mui/icons-material/Edit';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
-import PubSub from 'pubsub-js';
 
 export default function WorkSpaceCol(props) {
 
@@ -20,10 +19,6 @@ export default function WorkSpaceCol(props) {
     // const [tasks, setTasks] = React.useState([])
 
     const [isModifyingTitle, setIsModifyingTitle] = React.useState(false)
-
-    function placeTaskToTG(_, { taskgroupId, task, index }) {
-
-    }
 
     useEffect(() => {
 
@@ -40,10 +35,6 @@ export default function WorkSpaceCol(props) {
     function addOneTask(taskgroupId, task) {
         // setTasks([...tasks, task])
         props.addOneTask(taskgroupId, task)
-    }
-
-    function handleClick() {
-
     }
 
     async function toggleTtitleModifyingBox(e) {
