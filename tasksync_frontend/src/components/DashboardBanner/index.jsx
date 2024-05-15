@@ -13,7 +13,7 @@ import { stringToColor } from '../../common/common';
 import cookies from 'js-cookie';
 import jwt from '../../common/jwt';
 import NewProject from '../NewProject';
-import PubSub, { publish } from 'pubsub-js';
+import PubSub from 'pubsub-js';
 import Inviting from '../Inviting';
 import {Divider} from '@mui/material';
 
@@ -29,6 +29,7 @@ export default function DashboardBanner(props) {
 
     const [ isOpenningNewProjectInput, setIsOpenningNewProjectInput ] = React.useState(false)
 
+    const {setActiveProjectId} = props
     useEffect(() => {
         api.projectApi.getProjects().then(
             res => {
@@ -43,19 +44,19 @@ export default function DashboardBanner(props) {
                         }
                     })
                     if (local_activeProjectId !== undefined && isExisting){
-                        props.setActiveProjectId(local_activeProjectId)
+                        setActiveProjectId(local_activeProjectId)
                     } else {
-                        props.setActiveProjectId(res.data.data[0]._id)
+                        setActiveProjectId(res.data.data[0]._id)
                     }
                 }
             }
         )
         PubSub.subscribe("updateProjectList", updateProjectList)
         PubSub.subscribe("updateDashboardBannerUsers", updateDashboardBannerUsers)
-    }, [])
+    }, [setActiveProjectId])
 
     useEffect(() => {
-        if (props.activeProjectId != "") {
+        if (props.activeProjectId !== "") {
             api.projectApi.getProjectById(props.activeProjectId).then(
                 res => {
                     api.userApi.getUsersByIds(res.data.data.participants).then(
@@ -66,6 +67,7 @@ export default function DashboardBanner(props) {
                                 if (item._id === myid){
                                     return true
                                 }
+                                return false
                             })
                             console.log(typeof me[0].collectedProjectIds)
                             if (me[0].collectedProjectIds.indexOf(props.activeProjectId) !== -1){

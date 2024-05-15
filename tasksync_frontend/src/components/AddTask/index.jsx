@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import '../Workspace/WorkspaceCol/Task/index.css'
 import './index.css'
-import { Avatar, Button, Chip, IconButton } from '@mui/material'
+import { Avatar, Button, Chip } from '@mui/material'
 // import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import Radio from '@mui/material/Radio';
@@ -44,7 +44,7 @@ export default function AddTask(props) {
     }
 
     function addTag(e){
-        if (e.keyCode == 13){
+        if (e.keyCode === 13){
             console.log([{tagId: nanoid(), tagname: e.target.value}, ...tags])
             setTags([{tagId: nanoid(), tagname: e.target.value}, ...tags])
             e.target.value = ""

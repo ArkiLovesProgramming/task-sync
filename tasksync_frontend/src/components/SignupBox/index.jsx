@@ -1,7 +1,6 @@
 import React from 'react'
 import './index.css'
 import { Button, IconButton } from '@mui/material'
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from 'react-router-dom';
@@ -28,10 +27,10 @@ export default function SignupBox() {
         if (!isEmail(emailValue)){
             console.log("email wrong")
         }
-        if (passwordValue == ""){
+        if (passwordValue === ""){
             console.log("password empty")
         }
-        if (passwordValue != rePasswordValue){
+        if (passwordValue !== rePasswordValue){
             console.log("verify fails")
         }
         api.userApi.adduser(emailValue, passwordValue).then(
@@ -91,7 +90,7 @@ export default function SignupBox() {
                 </div>
             </div>
             <div className='login_box_bottom'>
-                <div>Have account elready? <a onClick={toLogin} href='#'>Switch to login in!</a></div>
+                <div>Have account elready? <a onClick={toLogin} href='###'>Switch to login in!</a></div>
             </div>
         </div>
     )

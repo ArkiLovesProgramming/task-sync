@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 // CSs
 import "./index.css"
 //component
@@ -6,24 +6,10 @@ import DashboardBanner from '../../components/DashboardBanner'
 import Workspace from '../../components/Workspace'
 import { Container } from '@mui/material'
 import Footer from '../../components/Footer'
-import PubSub from 'pubsub-js'
 
 export default function Main() {
 
     const [activeProjectId, setActiveProjectId] = React.useState("")
-
-    const [movedTask, setMovedTask] = React.useState({})
-
-    const [taskOperationInfo, settaskOperationInfo] = useState({})
-
-
-    useEffect(() => {
-        // const local_activeProjectId = localStorage.getItem("activeProjectId")
-        // if (local_activeProjectId !== undefined){
-        //     setActiveProjectId(local_activeProjectId)
-        // }
-        // PubSub.subscribe("getMovedTask", getMovedTask)
-    }, [])
 
     useEffect(() => {
         if (activeProjectId === "") return;

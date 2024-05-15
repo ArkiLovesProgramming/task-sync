@@ -19,13 +19,9 @@ export default function Task(props) {
                 }
             }
         )
-    }, [])
+    }, [props.task.createrId])
 
     function handleTagDelete() {
-
-    }
-
-    function addTag() {
 
     }
 

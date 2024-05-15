@@ -20,12 +20,12 @@ export default function Header() {
     useEffect(()=>{
         if (isLogin){
             const token = cookie.get("token")
-            if ( token == undefined){
+            if ( token === undefined){
                 setIsLogin(false)
                 return;
             }
             const decodedToken = jwt.verifyToken(token)
-            if (decodedToken != undefined){
+            if (decodedToken !== undefined){
                 setUserInfo({...decodedToken._doc})
                 PubSub.publish("isVerified", true)
             }

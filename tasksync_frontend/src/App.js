@@ -4,7 +4,6 @@ import Header from './components/Header';
 // Material Import
 import { Grid } from '@mui/material';
 import router from "./router";
-import Footer from './components/Footer';
 
 
 function App() {

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './index.css'
 import { Button, IconButton } from '@mui/material'
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from 'react-router-dom'
@@ -34,7 +33,7 @@ export default function LoginBox() {
             console.log("email 错误")
             return;
         }
-        if (passwordValue == "") {
+        if (passwordValue === "") {
             console.log("password empty")
             return;
         }
@@ -90,7 +89,7 @@ export default function LoginBox() {
                 </div>
             </div>
             <div className='login_box_bottom'>
-                <div>New user? <a onClick={toSignup} href='#'>Switch to sign up!</a></div>
+                <div>New user?<a href='http://arkilovesprogramming.com' onClick={toSignup}>Switch to sign up!</a></div>
             </div>
         </div>
     )

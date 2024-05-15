@@ -9,7 +9,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 export default function NewProject() {
 
     const [ projectNameValue, setProjectNameValue ] = React.useState("")
-    const [ taskgroupValue, setTaskgroupValue ] = React.useState([])
 
     return (
         <div className='main_page'>

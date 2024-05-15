@@ -1,8 +1,6 @@
 import React from 'react'
-import LoginBox from '../../components/LoginBox'
 import './index.css'
-import SignupBox from '../../components/SignupBox'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function Login() {
   return (

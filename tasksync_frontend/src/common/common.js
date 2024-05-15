@@ -35,7 +35,7 @@ const tagProps = {
 }
 
 function isEmail(email){
-    const regex = new RegExp('^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$');
+    const regex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     if (regex.test(email)){
         return true
     }

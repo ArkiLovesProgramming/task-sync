@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 //css
 import './index.css'
-// fd
-import { tasks } from '../../common/data'
 //component
 import WorkSpaceCol from './WorkspaceCol'
 import api from '../../common/api'
@@ -14,7 +12,7 @@ export default function Workspace(props) {
   const [taskgroups, setTaskgroups] = useState([])
 
   useEffect(() => {
-    const { activeProjectId } = props
+    const activeProjectId = props.activeProjectId
     if (activeProjectId !== "") {
       api.taskgroupApi.getTaskgroupByProjectId(activeProjectId).then(
         async res => {
@@ -147,7 +145,7 @@ export default function Workspace(props) {
       <div className='Workspace'>
         {
           taskgroups.map((item, index) => {
-            if (item.tasks === undefined) return;
+            if (item.tasks === undefined) return "";
             return (
               <WorkSpaceCol
                 droppableId={item.taskgroup._id}

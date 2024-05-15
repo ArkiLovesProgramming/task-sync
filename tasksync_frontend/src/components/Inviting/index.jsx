@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './index.css'
-import { Avatar, debounce } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { Button, Checkbox } from '@mui/material';
 import api from '../../common/api';
 import { stringToColor } from '../../common/common';

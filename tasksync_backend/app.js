@@ -22,7 +22,7 @@ app.use(cookieParser())
 
 // 全局配置跨域
 app.use(cors({
-	origin: '*',
+	origin: 'http://localhost:3000',
 	credentials: true,
 	allowedHeaders: ['Content-Type'],
 	methods: ['GET', 'POST', 'PUT', 'DELETE']

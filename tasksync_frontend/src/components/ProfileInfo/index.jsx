@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import './index.css'
-import { Avatar, IconButton, Button, TextField } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import jwt from '../../common/jwt';
-import cookie from 'js-cookie';
 import api from '../../common/api';
+import { IconButton, Button } from '@mui/material';
 
 export default function ProfileInfo() {
 
