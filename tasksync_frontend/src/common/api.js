@@ -102,11 +102,28 @@ const taskApi = {
     },
 
     reorderTask(tasks){
-        let data = {tasks}
+        let data = {
+            tasks
+        }
         return axios.post(`${base_url}/task/reorderTask`, data)
     }
     
 }
 
-let api = { userApi, projectApi, taskgroupApi, taskApi }
+const fileApi = {
+    upload(formData){
+        // let data = {
+        //     file: file
+        // }
+
+        let config = {
+            headers: {
+                'Content-Type': "multipart/form-data"
+            }
+        }
+        return axios.post(`${base_url}/file/upload`,formData, config)
+    }
+}
+
+let api = { userApi, projectApi, taskgroupApi, taskApi, fileApi }
 export default api

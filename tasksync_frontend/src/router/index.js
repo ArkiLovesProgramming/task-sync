@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { AuthRouter } from "./AuthRouter"
 import NewProject from "../pages/NewProject_invalid";
+import Profile from "../pages/Profile";
 // 使用路由懒加载（lazy）
 const Main = lazy(() => import("../pages/Main"));
 const Login = lazy(() => import("../pages/Login"));
@@ -40,6 +41,10 @@ const router = [
             element: <Navigate to="login" />
         },
     ]
+  },
+  {
+    path: "/profile",
+    element: <Profile/>
   },
   {
     path: "*",

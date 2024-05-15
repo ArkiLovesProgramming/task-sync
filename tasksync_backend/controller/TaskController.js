@@ -58,7 +58,7 @@ async function moveTask(req, res){
 async function reorderTask(req, res){
     // console.log("~~~~~~~~~~")
     const { tasks } = req.body
-    // console.log(tasks)
+    console.log(tasks)
     const rst = await TaskService.reorderTask(tasks)
     res.json({
         data: rst

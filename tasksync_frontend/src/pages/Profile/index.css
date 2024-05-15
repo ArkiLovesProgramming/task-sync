@@ -1,0 +1,16 @@
+.profile_page{
+    background-color: rgb(106, 99, 246);
+    overflow: hidden;
+    /* height: calc(100%); */
+    height: 100%;
+    position: relative;
+}
+
+.profile_page_box{
+    /* max-width: 438px;
+    margin: auto;
+    padding-top: 10px;
+    z-index: 1;
+    position: relative; */
+    /* background-color: antiquewhite; */
+}
