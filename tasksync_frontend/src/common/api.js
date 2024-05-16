@@ -4,6 +4,9 @@ import axios from "axios"
 // const base_url = "http://localhost:9000/api"
 const base_url = "https://weiblog.arkilovesprogramming.com:444/api"
 
+//客户端在本地就行，在远程就不行...
+//cookie带了呀,看看是不是解析不出来
+
 // 修改 Axios 的默认配置
 axios.defaults.withCredentials = true;
 

@@ -74,7 +74,7 @@ async function login(req, res) {
                 msg: "failture happened"
             })
         }
-        res.cookie('token', token, { maxAge: config.token.validTime * 1000 })
+        res.cookie('token', token, { maxAge: config.token.validTime * 1000, sameSite: 'none', secure: true })
         res.json({
             code: 1000,
             data: token

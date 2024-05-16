@@ -69,6 +69,7 @@ async function addProject(req, res) {
 async function getProjectByUserId(req, res) {
     try {
         const { token } = req.cookies
+        console.log("The received cookies is ", req.cookies)
         const decodedToken = await JWTService.verifyToken(token)
         const userInfo = decodedToken._doc
         const projects = await ProjectService.getProjectByUserId(userInfo._id)

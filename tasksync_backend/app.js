@@ -34,7 +34,7 @@ app.use(cookieParser())
 
 // 全局配置跨域
 app.use(cors({
-	origin: ["http://tasksync.arkilovesprogramming.com", "https://tasksync.arkilovesprogramming.com", "http://localhost:3000"],
+	origin: ["http://tasksync.arkilovesprogramming.com", "https://tasksync.arkilovesprogramming.com", "http://localhost:3000", "https://tasksync.arkilovesprogramming.com:443", "http://tasksync.arkilovesprogramming.com:80"],
 	credentials: true,
 	allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
 	methods: ['GET', 'POST', 'PUT', 'DELETE']
