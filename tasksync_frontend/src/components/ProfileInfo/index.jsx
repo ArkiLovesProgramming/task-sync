@@ -41,15 +41,6 @@ export default function ProfileInfo() {
     }
 
     function confirm() {
-        // const token = cookie.get("token")
-        // const user = jwt.verifyToken(token)._doc
-        // let formdata = {
-        //     userId: user._id,
-        //     profilePicFile: fileinput.current.files[0],
-        //     username: usernameValue,
-        //     email: emailValue,
-        //     bio: bioValue
-        // }
         if (fileinput.current.files[0] === undefined) return;
         const formData = new FormData();
         formData.append("file", fileinput.current.files[0])

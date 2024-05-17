@@ -60,7 +60,6 @@ export default function Workspace(props) {
 
   async function onDragEnd(result) {
     const { destination, source } = result
-    console.log("destination", destination, "source", source)
 
     if (!destination){
       return;
@@ -104,19 +103,14 @@ export default function Workspace(props) {
     setTaskgroups(newtaskgroups)
     //++++++++
 
-    console.log("originalTaskgroupsState", originalTaskgroupsState)
     //数据库移动 task 在任务组间
     if (destination.droppableId !== source.droppableId){
       let targetTaskId;
       originalTaskgroupsState.forEach(item=>{
         if (item.taskgroupId === source.droppableId){
-          console.log("源任务", item.tasks[source.index])
-          console.log("source.index", source.index)
           targetTaskId = item.tasks[source.index]._id
         }
       })
-      console.log("源任务Id", targetTaskId)
-      console.log(targetTaskId)
       await api.taskApi.moveTask(targetTaskId, destination.droppableId)
     }
 

@@ -7,7 +7,17 @@ const { nanoid } = require('nanoid')
 // 需要 title
 async function addProject(req, res) {
     try {
-        const { token } = req.cookies
+        let token;
+        if (req.cookies.token !== undefined){
+            token = req.cookies.token
+        } else if(req.headers.token !== undefined){
+            token = req.headers.token
+        } else{
+            res.json({
+                code: 1000,
+                msg: "Token is undefined"
+            })
+        }
         const decodedToken = await JWTService.verifyToken(token)
         const userInfo = decodedToken._doc
         const { title, isCollected } = req.body
@@ -68,8 +78,17 @@ async function addProject(req, res) {
 // 根据 participants 和 createId 匹配
 async function getProjectByUserId(req, res) {
     try {
-        const { token } = req.cookies
-        console.log("The received cookies is ", req.cookies)
+        let token;
+        if (req.cookies.token !== undefined){
+            token = req.cookies.token
+        } else if(req.headers.token !== undefined){
+            token = req.headers.token
+        } else{
+            res.json({
+                code: 1000,
+                msg: "Token is undefined"
+            })
+        }
         const decodedToken = await JWTService.verifyToken(token)
         const userInfo = decodedToken._doc
         const projects = await ProjectService.getProjectByUserId(userInfo._id)

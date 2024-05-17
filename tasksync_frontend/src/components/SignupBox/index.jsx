@@ -35,7 +35,6 @@ export default function SignupBox() {
         }
         api.userApi.adduser(emailValue, passwordValue).then(
             res=>{
-                console.log(res)
                 navigate('/home/login')
             }
         )

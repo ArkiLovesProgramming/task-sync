@@ -8,7 +8,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import { tagProps, stringToColor } from '../../common/common';
+import { tagProps, stringToColor, getToken } from '../../common/common';
 import { nanoid } from 'nanoid'
 import CheckIcon from '@mui/icons-material/Check';
 import api from '../../common/api';
@@ -27,7 +27,8 @@ export default function AddTask(props) {
     const { toggleAddingTask } = props
 
     useEffect(()=>{
-        const decodedToken = jwt.verifyToken(cookie.get("token"))
+        let token = getToken(cookie)
+        const decodedToken = jwt.verifyToken(token)
         setCreater(decodedToken._doc)
     }, [])
 
@@ -45,7 +46,6 @@ export default function AddTask(props) {
 
     function addTag(e){
         if (e.keyCode === 13){
-            console.log([{tagId: nanoid(), tagname: e.target.value}, ...tags])
             setTags([{tagId: nanoid(), tagname: e.target.value}, ...tags])
             e.target.value = ""
         }
@@ -53,10 +53,8 @@ export default function AddTask(props) {
 
     function confirm(){
         if (titleValue === "" || contentValue === "") return;
-        console.log("props.taskgroupId" + props.taskgroupId)
         api.taskApi.addTask(titleValue, severityValue, contentValue, tags, props.taskgroupId).then(
             res=>{
-                console.log(res.data.data)
                 props.addOneTask(props.taskgroupId, res.data.data)
                 toggleAddingTask()
             }

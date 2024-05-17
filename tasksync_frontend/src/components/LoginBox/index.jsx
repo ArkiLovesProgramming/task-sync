@@ -39,9 +39,11 @@ export default function LoginBox() {
         }
         api.userApi.login(emailValue, passwordValue).then(
             res => {
+                console.log("I am here")
                 if (res.data.code === 2000) {
                     console.log("找不到")
                 } else if (res.data.code === 1000) {
+                    localStorage.setItem("token", res.data.data)
                     PubSub.publish("setIsLogin", true)
                     navigate("/dashboard")
                 }

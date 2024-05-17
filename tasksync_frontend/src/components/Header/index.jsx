@@ -1,5 +1,5 @@
 // React
-import React, {Fragment, useEffect} from 'react'
+import React, { Fragment, useEffect } from 'react'
 // Css
 import './index.css'
 // Material
@@ -9,32 +9,33 @@ import { stringToColor } from "../../common/common"
 import { useNavigate } from 'react-router-dom';
 import jwt from '../../common/jwt';
 import cookie from 'js-cookie'
-import PubSub from 'pubsub-js' 
+import PubSub from 'pubsub-js'
+import { getToken } from '../../common/common';
 
 
 export default function Header() {
 
     const [isLogin, setIsLogin] = React.useState(false)
-    const [ userInfo, setUserInfo ] = React.useState({username: "loading"})
+    const [userInfo, setUserInfo] = React.useState({ username: "loading" })
 
-    useEffect(()=>{
-        if (isLogin){
-            const token = cookie.get("token")
-            if ( token === undefined){
+    useEffect(() => {
+        if (isLogin) {
+            let token = getToken(cookie)
+            if (token === null) {
                 setIsLogin(false)
                 return;
             }
             const decodedToken = jwt.verifyToken(token)
-            if (decodedToken !== undefined){
-                setUserInfo({...decodedToken._doc})
+            if (decodedToken !== undefined) {
+                setUserInfo({ ...decodedToken._doc })
                 PubSub.publish("isVerified", true)
             }
         }
     }, [isLogin])
 
-    useEffect(()=>{
-        const token = cookie.get("token")
-        if (token !== undefined && jwt.verifyToken(token) !== undefined){
+    useEffect(() => {
+        let token = getToken(cookie)
+        if (token !== null && jwt.verifyToken(token) !== undefined) {
             setIsLogin(true)
         } else {
             setIsLogin(false)

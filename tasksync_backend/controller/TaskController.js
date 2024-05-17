@@ -12,7 +12,17 @@ async function getTasksByTGId(req, res) {
 
 async function addTask(req, res) {
     try {
-        const { token } = req.cookies
+        let token;
+        if (req.cookies.token !== undefined){
+            token = req.cookies.token
+        } else if(req.headers.token !== undefined){
+            token = req.headers.token
+        } else{
+            res.json({
+                code: 1000,
+                msg: "Token is undefined"
+            })
+        }
         const decodedToken = await JWTService.verifyToken(token)
         const userInfo = decodedToken._doc
         const { title, severity, content, tags, taskgroupId } = req.body

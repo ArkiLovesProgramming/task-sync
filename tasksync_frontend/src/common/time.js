@@ -36,7 +36,3 @@ function formatDate(date) {
 }
 
 export default formatDate;
-
-// 测试
-const date = new Date("Tue Apr 23 2024 09:52:21 GMT-0230 (Newfoundland Daylight Time)");
-console.log(formatDate(date));

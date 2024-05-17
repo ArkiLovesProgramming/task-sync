@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 
 function verifyToken(token) {
     try {
+        console.log("token", token)
         const decodedToken = jwtDecode(token)
         return decodedToken
     } catch (error) {

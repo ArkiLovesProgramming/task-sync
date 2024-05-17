@@ -34,7 +34,6 @@ export default function Inviting(props) {
   }
 
   function checkUser(e) {
-    console.log(e.target.value)
     if (e.target.checked) {
       if (selectedUsers.indexOf(e.target.value) === -1) {
         setSelectedUsers([...selectedUsers, e.target.value])
@@ -63,11 +62,8 @@ export default function Inviting(props) {
   }
 
   function invite(){
-    console.log(selectedUsers)
     api.projectApi.addUsersIntoProject(selectedUsers, props.activeProjectId).then(
       res=>{
-        console.log("debugging4")
-        console.log(res.data.data)
         PubSub.publish("updateDashboardBannerUsers", props.activeProjectId)
         props.setIsDialogOpening(false)
       }

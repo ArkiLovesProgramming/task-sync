@@ -3,7 +3,17 @@ const TaskGroupService = require('../service/TaskGroupService')
 
 async function addTaskGroup(req, res) {
     try {
-        const { token } = req.cookies
+        let token;
+        if (req.cookies.token !== undefined){
+            token = req.cookies.token
+        } else if(req.headers.token !== undefined){
+            token = req.headers.token
+        } else{
+            res.json({
+                code: 1000,
+                msg: "Token is undefined"
+            })
+        }
         const decodedToken = JWTService.verifyToken(token)
         const { title, projectId } = req.query
         const taskGroup = {
@@ -11,7 +21,7 @@ async function addTaskGroup(req, res) {
             title,
             createdTime: new Date(),
             deleted: 0,
-            createrId: String,
+            createrId: decodedToken._id,
             projectId,
             order: 0    // 默认不排序，后续可以自己排序
         }
@@ -37,7 +47,6 @@ async function getTaskGroupsByPId(req, res) {
 
 async function updateTaskgroup(req, res){
     const requestBody = req.body.taskgroup
-    console.log(requestBody)
     const rst = await TaskGroupService.updateTaskgroup(requestBody)
     res.json({
         data: rst

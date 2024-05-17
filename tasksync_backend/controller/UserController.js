@@ -98,7 +98,6 @@ async function getUsersByUserIds(req, res){
 
 async function updateUserByUserId(req, res){
     const requestBody = req.body.user
-    console.log(requestBody)
     try {
         const data = await UserService.updateUserByUserId(requestBody)
         res.json({

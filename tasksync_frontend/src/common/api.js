@@ -1,11 +1,16 @@
 import axios from "axios"
+import { getToken } from "./common";
+import cookie from "js-cookie";
 
 // const base_url = "https://letschat.api.arkilovesprogramming.com:443/api"
-// const base_url = "http://localhost:9000/api"
-const base_url = "https://weiblog.arkilovesprogramming.com:444/api"
+const base_url = "http://localhost:9000/api"
+// const base_url = "https://weiblog.arkilovesprogramming.com:444/api"
+
+axios.defaults.headers.common['token'] = getToken(cookie);
 
 //客户端在本地就行，在远程就不行...
 //cookie带了呀,看看是不是解析不出来
+//可能还是用 localstorage 吧
 
 // 修改 Axios 的默认配置
 axios.defaults.withCredentials = true;
@@ -75,7 +80,6 @@ const taskApi = {
 
     // const { title, severity, content, tags, taskgroupId } = req.body
     addTask(title, severity, content, tags, taskgroupId){
-        console.log("hello+" + taskgroupId)
         let data = {
             title,
             severity,

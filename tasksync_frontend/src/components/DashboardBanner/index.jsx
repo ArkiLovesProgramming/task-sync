@@ -9,8 +9,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 //material
 import { IconButton, AvatarGroup, Avatar, Button, Container } from '@mui/material';
 import api from '../../common/api';
-import { stringToColor } from '../../common/common';
-import cookies from 'js-cookie';
+import { getToken, stringToColor } from '../../common/common';
+import cookie from 'js-cookie';
 import jwt from '../../common/jwt';
 import NewProject from '../NewProject';
 import PubSub from 'pubsub-js';
@@ -35,7 +35,6 @@ export default function DashboardBanner(props) {
             res => {
                 setProjects(res.data.data)
                 if (res.data.data.length !== 0) {
-                    // console.log(res.data.data[0])
                     const local_activeProjectId = localStorage.getItem("activeProjectId")
                     let isExisting = false;
                     res.data.data.forEach(item=>{
@@ -50,7 +49,9 @@ export default function DashboardBanner(props) {
                     }
                 }
             }
-        )
+        ).catch(e=>{
+            console.log("错了", e)
+        })
         PubSub.subscribe("updateProjectList", updateProjectList)
         PubSub.subscribe("updateDashboardBannerUsers", updateDashboardBannerUsers)
     }, [setActiveProjectId])
@@ -62,7 +63,7 @@ export default function DashboardBanner(props) {
                     api.userApi.getUsersByIds(res.data.data.participants).then(
                         res => {
                             setUsers(res.data.data)
-                            const myid = jwt.verifyToken(cookies.get("token"))._doc._id
+                            const myid = jwt.verifyToken(getToken(cookie))._doc._id
                             const me = res.data.data.filter(item=>{
                                 if (item._id === myid){
                                     return true
@@ -109,7 +110,7 @@ export default function DashboardBanner(props) {
     }
 
     function collectProject() {
-        let thisuser = jwt.verifyToken(cookies.get("token"))._doc
+        let thisuser = jwt.verifyToken(getToken(cookie))._doc
         api.userApi.getUsersByIds([thisuser._id]).then(
             res => {
                 thisuser = res.data.data[0]

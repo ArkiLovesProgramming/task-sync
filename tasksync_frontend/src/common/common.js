@@ -42,8 +42,21 @@ function isEmail(email){
     return false
 }
 
+function getToken(cookie){
+    let token;
+    if (cookie.get("token") !== undefined){
+        token = cookie.get("token")
+    } else if(localStorage.getItem("token") !== undefined){
+        token = localStorage.getItem("token")
+    } else{
+        console.log("error: Token is undefined")
+    }
+    return token
+}
+
 export {
     stringToColor,
     tagProps,
-    isEmail
+    isEmail,
+    getToken
 }
