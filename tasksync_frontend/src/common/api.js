@@ -3,8 +3,8 @@ import { getToken } from "./common";
 import cookie from "js-cookie";
 
 // const base_url = "https://letschat.api.arkilovesprogramming.com:443/api"
-const base_url = "http://localhost:9000/api"
-// const base_url = "https://weiblog.arkilovesprogramming.com:444/api"
+// const base_url = "http://localhost:9000/api"
+const base_url = "https://weiblog.arkilovesprogramming.com:444/api"
 
 axios.defaults.headers.common['token'] = getToken(cookie);
 
