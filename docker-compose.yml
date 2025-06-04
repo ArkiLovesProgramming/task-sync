@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+  tasksync_frontend:
+    image: tasksync_frontend:latest
+    build:
+      context: ./tasksync_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:${TASKSYNC_FRONTEND_PORT:-3000}"
+    env_file: ./tasksync_frontend/.env
+    environment:
+      - NODE_ENV=dev
+      - REACT_APP_TASKSYNC_BACKEND_POST=${REACT_APP_TASKSYNC_BACKEND_POST:-9000}
+      - REACT_APP_TASKSYNC_BACKEND_HOST=localhost
+    networks:
+      - tasksync_network
+  tasksync_backend:
+    image: tasksync_backend:latest
+    build:
+      context: ./tasksync_backend
+      dockerfile: Dockerfile
+    ports:
+      - "9000:${TASKSYNC_BACKEND_PORT:-9000}"
+    env_file: ./tasksync_backend/.env
+    environment:
+      - NODE_ENV=dev
+      - MONGO_DB_HOST=mongo_db
+      - MONGO_DB_URL=${MONGO_DB_URL:-mongodb://root:example@mongo_db:27017/todo?authSource=admin}
+    networks:
+      - tasksync_network
+    depends_on:
+      - mongo_db
+  mongo_db:
+    image: mongo:latest
+    ports:
+      - "27017:${MONGO_DB_PORT:-27017}"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - type: volume
+        source: mongo_data
+        target: /data/db
+        volume:
+          nocopy: true
+    networks:
+      - tasksync_network
+networks:
+  tasksync_network:
+volumes:
+  mongo_data:
